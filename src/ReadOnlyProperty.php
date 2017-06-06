@@ -20,7 +20,7 @@ class ReadOnlyProperty implements PropertyInterface
     public function __construct(string $name, $value = null)
     {
         $this->name = $name;
-        $this->setValue($value);
+        $this->value = $value;
     }
 
     public function setValue($value = null):PropertyInterface
