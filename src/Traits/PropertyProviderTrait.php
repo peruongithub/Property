@@ -119,6 +119,13 @@ trait PropertyProviderTrait
         $getter = 'get' . ucfirst($name);
         if (method_exists($this, $getter)) {
             return $this->$getter();
+        }
+        /**
+         * Getter is.. use for the boolean property
+         */
+        $getter = 'is' . ucfirst($name);
+        if (method_exists($this, $getter)) {
+            return $this->$getter();
         } else if ($this->hasProperty($name)) {
             return $this->getProperty($name)->getValue();
         }
