@@ -116,7 +116,7 @@ trait PropertyProviderTrait
      */
     public function __get(string $name)
     {
-        $getter = 'get' . $name;
+        $getter = 'get' . ucfirst(strtolower($name));
         if (method_exists($this, $getter)) {
             return $this->$getter();
         } else if ($this->hasProperty($name)) {
@@ -132,7 +132,7 @@ trait PropertyProviderTrait
      */
     public function __set(string $name, $value)
     {
-        $setter = 'set' . $name;
+        $setter = 'set' . ucfirst(strtolower($name));
         if (method_exists($this, $setter)) {
             return $this->$setter($value);
         } else if ($this->hasProperty($name)) {
