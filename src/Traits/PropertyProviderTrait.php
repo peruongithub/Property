@@ -139,7 +139,7 @@ trait PropertyProviderTrait
             return $this->getProperty($name)->setValue($value);
         }
         throw new \InvalidArgumentException(
-            sprintf('Property "%s" don`t exist in class "%s".', $name, get_class($this))
+            sprintf('Property "%s" don`t exist in class "%s", or you cannot change it.', $name, get_class($this))
         );
     }
 
