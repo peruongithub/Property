@@ -13,6 +13,10 @@ namespace Trident\Components\Property\Interfaces;
 
 interface PropertyProviderInterface
 {
+    /**
+     * Return array of the property names
+     * @return array
+     */
     public function getProperties():array;
 
     public function hasProperty(string $name):bool;
@@ -24,9 +28,24 @@ interface PropertyProviderInterface
      */
     public function getProperty(string $name):PropertyInterface;
 
-    public function __get(string $name):PropertyInterface;
-
     public function addProperty(PropertyInterface $property):PropertyProviderInterface;
 
     public function removeProperty(string $name):PropertyProviderInterface;
+
+    public function __unset(string $name);
+
+    /**
+     * Get the value of the property
+     * @param string $name
+     * @return mixed
+     */
+    public function __get(string $name);
+
+    /**
+     * Sets the value of the property
+     * @param string $name
+     * @param null $value
+     * @return mixed
+     */
+    public function __set(string $name, $value);
 }
